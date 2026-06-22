@@ -21,5 +21,6 @@ export default defineConfig({
       formats: ["iife"],
       fileName: () => "bundle.js",
     },
+    
   },
 });
