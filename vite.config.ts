@@ -4,6 +4,16 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
+
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
+    process: {
+      env: {
+        NODE_ENV: "production",
+      },
+    },
+  },
+
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.widget.tsx"),
@@ -11,14 +21,5 @@ export default defineConfig({
       formats: ["iife"],
       fileName: () => "bundle.js",
     },
-    rollupOptions: {
-      external: [],
-    },
-    minify: true,
-  },
-  define: {
-    // Replace process.env with empty object
-    process: {},
-    "process.env": {},
   },
 });
